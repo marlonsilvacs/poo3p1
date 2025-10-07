@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProdutoCRUDController">
+    <SplitPane dividerPositions="0.75" orientation="VERTICAL" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="1000.0">
+            <SplitPane dividerPositions="0.35" prefHeight="450.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                
+                <AnchorPane style="-fx-background-color: #FFFFFF; -fx-padding: 10;">
+                    <VBox alignment="TOP_CENTER" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #1E90FF;" text="Cadastro/Edição de Produto" />
+                        
+                        <GridPane hgap="10.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="200.0" />
+                            </columnConstraints>
+                            
+                            <Label text="Código:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <TextField fx:id="txtCodigo" promptText="8 caracteres (ex: PRD12345)" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                            
+                            <Label text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <TextField fx:id="txtNome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                            <Label text="Categoria:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <ComboBox fx:id="cmbCategoria" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            
+                            <Label text="Data Fabricação:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                            <DatePicker fx:id="dpFabricacao" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                            
+                            <Label text="Data Validade:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                            <DatePicker fx:id="dpValidade" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                            
+                            <Label text="Preço Compra (R$):" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                            <TextField fx:id="txtPrecoCompra" promptText="0.00" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                            
+                            <Label text="Preço Venda (R$):" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                            <TextField fx:id="txtPrecoVenda" promptText="0.00" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                            
+                            <Label text="Estoque (Qtd):" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                            <TextField fx:id="txtEstoque" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                            
+                            <Label text="Descrição:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                            <TextArea fx:id="txtDescricao" prefHeight="80.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        </GridPane>
+                        
+                        <HBox alignment="CENTER" spacing="10.0">
+                            <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#handleSalvar" text="Salvar" style="-fx-background-color: #1E90FF; -fx-text-fill: white; -fx-font-weight: bold;" />
+                            <Button mnemonicParsing="false" onAction="#handleBuscar" text="Buscar (Código)" style="-fx-background-color: #4682B4; -fx-text-fill: white;" />
+                            <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#handleExcluir" text="Excluir" style="-fx-background-color: #FF6347; -fx-text-fill: white;" />
+                            <Button fx:id="btnLimpar" mnemonicParsing="false" onAction="#limparCampos" text="Limpar" />
+                        </HBox>
+                    </VBox>
+                </AnchorPane>
+                
+                <AnchorPane>
+                    <VBox prefHeight="450.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1E90FF;" text="Produtos Cadastrados">
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <TableView fx:id="tblProdutos" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" 
+                                   style="-fx-background-color: white;">
+                            <columns>
+                                <TableColumn fx:id="colCodigo" prefWidth="75.0" text="Código" />
+                                <TableColumn fx:id="colNome" prefWidth="120.0" text="Nome" />
+                                <TableColumn fx:id="colPrecoVenda" prefWidth="90.0" text="Venda (R$)" />
+                                <TableColumn fx:id="colEstoque" prefWidth="80.0" text="Estoque" />
+                                <TableColumn fx:id="colValidade" prefWidth="100.0" text="Validade" />
+                                <TableColumn fx:id="colCategoria" prefWidth="180.0" text="Categoria" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                        </VBox>
+                </AnchorPane>
+            </SplitPane>
+        </AnchorPane>
+
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="1000.0" style="-fx-background-color: #E0FFFF;"> <VBox prefHeight="150.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #00008B;" text="Relatórios Rápidos (Stream API)" />
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Button mnemonicParsing="false" onAction="#gerarRelatorioVencimento" text="Vencimento (60 Dias)" style="-fx-background-color: #ADD8E6; -fx-text-fill: black;" />
+                    <Button mnemonicParsing="false" onAction="#gerarRelatorioEstoqueBaixo" text="Estoque Baixo (&lt; 10)" style="-fx-background-color: #ADD8E6; -fx-text-fill: black;" />
+                    <Button mnemonicParsing="false" onAction="#gerarRelatorioMargemMedia" text="Margem Média/Categoria" style="-fx-background-color: #ADD8E6; -fx-text-fill: black;" />
+                </HBox>
+                <TextArea fx:id="txtRelatorio" editable="false" prefHeight="150.0" prefWidth="980.0" VBox.vgrow="ALWAYS" style="-fx-control-inner-background: white;" />
+            </VBox>
+        </AnchorPane>
+    </SplitPane>
+</AnchorPane>
