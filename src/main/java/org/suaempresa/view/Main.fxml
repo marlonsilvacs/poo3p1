@@ -10,22 +10,22 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.suaempresa.controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.suaempresa.controller.MainController">
     <children>
-        <VBox prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefHeight="343.0" prefWidth="800.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label text="Gerenciador de Produtos" />
+                <Label text="Gerenciador de Produtos Marlon Gabriel" />
                 <HBox spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleCadastrar" text="Cadastrar Novo" />
-                        <Button mnemonicParsing="false" onAction="#handleExcluir" text="Excluir" />
+                        <Button mnemonicParsing="false" onAction="#handleCadastrar" style="-fx-background-color: #4169E1;" text="Cadastrar Novo" textFill="WHITE" />
+                        <Button mnemonicParsing="false" onAction="#handleExcluir" style="-fx-background-color: #8B0000;" text="Excluir" textFill="WHITE" />
                         <TextField fx:id="codigoConsulta" promptText="Código para Consulta" />
-                        <Button mnemonicParsing="false" onAction="#handleConsultar" text="Consultar" />
-                        <Button mnemonicParsing="false" onAction="#handleListar" text="Listar Todos" />
-                        <Button mnemonicParsing="false" onAction="#handleRelatorios" text="Relatórios" />
+                        <Button mnemonicParsing="false" onAction="#handleConsultar" style="-fx-background-color: #4169E1;" text="Consultar" textFill="WHITE" />
+                        <Button mnemonicParsing="false" onAction="#handleListar" style="-fx-background-color: #4169E1;" text="Listar Todos" textFill="WHITE" />
+                        <Button mnemonicParsing="false" onAction="#handleRelatorios" style="-fx-background-color: #4169E1;" text="Relatórios" textFill="WHITE" />
                     </children>
                 </HBox>
-                <TableView fx:id="produtoTable" prefHeight="200.0" prefWidth="200.0">
+                <TableView fx:id="produtoTable" prefHeight="178.0" prefWidth="780.0">
                     <columns>
                         <TableColumn prefWidth="75.0" text="Código" />
                         <TableColumn prefWidth="150.0" text="Nome" />
