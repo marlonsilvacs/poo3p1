@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="400.0" prefWidth="600.0" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.suaempresa.controller.ProductFormController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <Label text="Código:" GridPane.rowIndex="0" />
+        <TextField fx:id="codigoField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label text="Nome:" GridPane.rowIndex="1" />
+        <TextField fx:id="nomeField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="Descrição:" GridPane.rowIndex="2" />
+        <TextArea fx:id="descricaoField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label text="Data Fabricação:" GridPane.rowIndex="3" />
+        <DatePicker fx:id="dataFabricacaoPicker" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Label text="Data Validade:" GridPane.rowIndex="4" />
+        <DatePicker fx:id="dataValidadePicker" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Label text="Preço Compra:" GridPane.rowIndex="5" />
+        <TextField fx:id="precoCompraField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Label text="Preço Venda:" GridPane.rowIndex="6" />
+        <TextField fx:id="precoVendaField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Label text="Quantidade Estoque:" GridPane.rowIndex="7" />
+        <TextField fx:id="quantidadeEstoqueField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <Label text="Categoria:" GridPane.rowIndex="8" />
+        <ComboBox fx:id="categoriaCombo" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+        <HBox alignment="BOTTOM_RIGHT" spacing="10.0" GridPane.columnSpan="2" GridPane.rowIndex="9">
+            <children>
+                <Button mnemonicParsing="false" onAction="#handleSalvar" text="Salvar" />
+                <Button mnemonicParsing="false" onAction="#handleCancelar" text="Cancelar" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</GridPane>

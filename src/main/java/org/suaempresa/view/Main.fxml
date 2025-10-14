@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.suaempresa.controller.MainController">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label text="Gerenciador de Produtos" />
+                <HBox spacing="10.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#handleCadastrar" text="Cadastrar Novo" />
+                        <Button mnemonicParsing="false" onAction="#handleExcluir" text="Excluir" />
+                        <TextField fx:id="codigoConsulta" promptText="Código para Consulta" />
+                        <Button mnemonicParsing="false" onAction="#handleConsultar" text="Consultar" />
+                        <Button mnemonicParsing="false" onAction="#handleListar" text="Listar Todos" />
+                        <Button mnemonicParsing="false" onAction="#handleRelatorios" text="Relatórios" />
+                    </children>
+                </HBox>
+                <TableView fx:id="produtoTable" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="Código" />
+                        <TableColumn prefWidth="150.0" text="Nome" />
+                        <TableColumn prefWidth="200.0" text="Descrição" />
+                        <TableColumn prefWidth="100.0" text="Data Fabricação" />
+                        <TableColumn prefWidth="100.0" text="Data Validade" />
+                        <TableColumn prefWidth="100.0" text="Preço Compra" />
+                        <TableColumn prefWidth="100.0" text="Preço Venda" />
+                        <TableColumn prefWidth="100.0" text="Estoque" />
+                        <TableColumn prefWidth="150.0" text="Categoria" />
+                    </columns>
+                </TableView>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>
